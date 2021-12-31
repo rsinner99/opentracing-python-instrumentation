@@ -34,6 +34,7 @@ def set_common_tags(span, task, span_kind):
     span.set_tag(tags.SPAN_KIND, span_kind)
     span.set_tag(tags.COMPONENT, 'Celery')
     span.set_tag('celery.task_name', task.name)
+    span.set_tag('peer.location', 'internal') # customize
 
 
 def before_task_publish_handler(headers, **kwargs):
